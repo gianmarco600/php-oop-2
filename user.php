@@ -1,11 +1,15 @@
 <?php 
 
+require_once 'social.php';
+
 class User{
     protected $name;
     protected $surname;
     protected $age;
     protected $email;
     protected $pwd;
+
+    use Social;
 
     function __construct($_email, $_pwd, $_age){
         
@@ -41,11 +45,12 @@ class User{
     }
     
     function getAllData(){
-        return $this->name . ' ' . 
-                $this->surname . ' ' .
-                $this->age . ' ' . 
-                $this->email . ' ' . 
-                $this->pwd;
+            $res =  $this->name . ' ' . 
+                    $this->surname . ' ' .
+                    $this->age . ' ' . 
+                    $this->email . ' ' . 
+                    $this->pwd;
+        return $res;
 
     }
 }

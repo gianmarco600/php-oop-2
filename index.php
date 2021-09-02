@@ -1,10 +1,13 @@
 <?php
 
 require_once 'user.php';
+require_once 'primeUser.php';
 
 $franco = new User('franco@gmail.com', 'ocnarfoaic', 99);
-?>
 
+$superFranco = new PrimeUser('Sfranco@gmail.com', 'Socnarfoaic', 100, '000001');
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,6 +24,8 @@ $franco = new User('franco@gmail.com', 'ocnarfoaic', 99);
         $franco->setSurname('Rossi');
      ?>
     <h2><?php echo $franco->getAllData() ?></h2>
+    
+    <h1><?php echo $superFranco->getAllData()?></h1>
     
 </body>
 </html>
