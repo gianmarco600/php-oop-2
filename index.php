@@ -4,9 +4,23 @@ require_once 'user.php';
 require_once 'primeUser.php';
 require_once 'product.php';
 
-$franco = new User('franco@gmail.com', 'ocnarfoaic', 99);
+try {
+    $franco = new User('franco@gmail.com', 'ocnarfoaic', 99);
+} catch (Exception $e){
+    echo 'eccezione: ' . $e->getMessage();
+}
 
-$superFranco = new PrimeUser('Sfranco@gmail.com', 'Socnarfoaic', 100, '000001');
+try {
+    $franco2 = new User('francoIlVecchio@gmail.com', 'ocnarfoaic', 200);
+} catch (Exception $e){
+    echo 'eccezione: ' . $e->getMessage();
+}
+
+try {
+    $superFranco = new PrimeUser('Sfranco@gmail.com', 'Socnarfoaic', 100, '000001');
+} catch (Exception $e){
+    echo 'eccezione: ' . $e->getMessage();
+}
 
 ?>
 
@@ -20,7 +34,8 @@ $superFranco = new PrimeUser('Sfranco@gmail.com', 'Socnarfoaic', 100, '000001');
 </head>
 <body>
 <ul> 
-        <?php foreach($franco->getAllData() as $elem){ ?>
+        <?php 
+        foreach($franco->getAllData() as $elem){ ?>
         <li> 
             <?php echo $elem ?>
         </li>
@@ -65,5 +80,11 @@ $superFranco = new PrimeUser('Sfranco@gmail.com', 'Socnarfoaic', 100, '000001');
     ?>
 
     <p><?php echo $cd->buy($superFranco) ?></p>
+    <p>creo un secondo prodotto</p>
+
+    <?php $vinile = new Product('vinile', 'lorem asasdf awefavsb', 'musica', 0);
+    ?>
+
+    <p><?php echo $vinile->buy($superFranco) ?></p>
 </body>
 </html>

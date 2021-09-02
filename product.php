@@ -11,10 +11,11 @@ class Product{
     protected $category;
     protected $disp;
 
-    function __construct($_prodName, $_description, $_category, $disp){
+    function __construct($_prodName, $_description, $_category, $_disp){
         $this->prodName = $_prodName;
         $this->description = $_description;
         $this->category = $_category;
+        $this->disp = $_disp;
     }
 
     function setSale($_sale){
@@ -68,13 +69,13 @@ class Product{
                 $_sale = $this->getSale();
                 $this->setSale($_sale + 10);
                 if($this->disp){
-                    return 'il prodotto è disponibile con il' . $this->sale . '% di sconto';
+                    return 'il prodotto è disponibile con il ' . $this->sale . '% di sconto';
                 }else{
                     return 'il prodotto non è disponibile';
                 }
             }else{
                 if($this->disp){
-                    return 'il prodotto è disponibile con il' . $this->sale . '% di sconto';
+                    return 'il prodotto è disponibile con il ' . $this->sale . '% di sconto';
                 }
             }
         }
