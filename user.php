@@ -44,13 +44,35 @@ class User{
         return $this->$_info;
     }
     
-    function getAllData(){
-            $res =  $this->name . ' ' . 
-                    $this->surname . ' ' .
-                    $this->age . ' ' . 
-                    $this->email . ' ' . 
-                    $this->pwd;
-        return $res;
-
+    function getName(){
+        if($this->name){
+            return $this->name;
+        }
     }
+
+    function getSurname(){
+        if($this->surname){
+            return $this->surname;
+        }
+    }
+
+    function getAge(){
+        return $this->age;
+    }
+
+    function getEmail(){
+        return $this->email;
+    }
+
+
+    function getAllData(){
+        $res=[];
+        array_push($res, $this->name);
+        array_push($res, $this->surname);
+        array_push($res, $this->age); 
+        array_push($res, $this->email);   
+        array_push($res, $this->pwd); 
+        return $res;
+    }
+    
 }

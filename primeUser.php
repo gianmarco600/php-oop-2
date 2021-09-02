@@ -19,13 +19,20 @@ class PrimeUser extends User {
         parent::__construct( $_email, $_pwd, $_age);
     }
 
+    function getPrimeID(){
+        return $this->primeID;
+    }
+
     function getAllData(){
         
         parent::getAllData();
-        $res = $res . ' ' . $this->primeID ; 
-        if($this->carta != ''){
-            $res = $res . ' ' . $this->carta;
-        }
+        $res=[];
+        array_push($res, $this->name);
+        array_push($res, $this->surname);
+        array_push($res, $this->age); 
+        array_push($res, $this->email);   
+        array_push($res, $this->pwd); 
+        array_push($res, $this->primeID);
             
         return $res;
     }

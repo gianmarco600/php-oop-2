@@ -18,8 +18,8 @@ trait Social {
     }
 
     function getLinks(){
-        return  $this->facebook . ' ' .
-                $this->twitter . ' ' .
+        return  $this->facebook . '<br>' .
+                $this->twitter . '<br>' .
                 $this->instagram;
     }
 }

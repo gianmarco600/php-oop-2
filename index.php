@@ -2,6 +2,7 @@
 
 require_once 'user.php';
 require_once 'primeUser.php';
+require_once 'product.php';
 
 $franco = new User('franco@gmail.com', 'ocnarfoaic', 99);
 
@@ -18,14 +19,51 @@ $superFranco = new PrimeUser('Sfranco@gmail.com', 'Socnarfoaic', 100, '000001');
     <title>Document</title>
 </head>
 <body>
-    <h1><?php echo $franco->getAllData() ?></h1>
+<ul> 
+        <?php foreach($franco->getAllData() as $elem){ ?>
+        <li> 
+            <?php echo $elem ?>
+        </li>
+        <?php } ?>
+    </ul>
     <?php 
         $franco->setName('Franco');
         $franco->setSurname('Rossi');
      ?>
-    <h2><?php echo $franco->getAllData() ?></h2>
+    <ul> 
+        <?php foreach($franco->getAllData() as $elem){ ?>
+        <li> 
+            <?php echo $elem ?>
+        </li>
+        <?php } ?>
+    </ul>
     
-    <h1><?php echo $superFranco->getAllData()?></h1>
-    
+    <?php 
+    $superFranco->setName('Sfranco');
+    $superFranco->setSurname('Srossi')
+    ?>
+    <ul> 
+        <?php foreach($superFranco->getAllData() as $elem){ ?>
+        <li> 
+            <?php echo $elem ?>
+        </li>
+        <?php } ?>
+    </ul>
+    <p>aggiungo social link a superFranco</p>
+    <?php $superFranco->setFacebookLink('superfranco.facebook.com'); ?>
+    <p><?php echo $superFranco->getLinks() ?></p>
+    <p>aggiungo social link anche a franco</p>
+    <?php $franco->setFacebookLink('franco.facebook.com'); ?>
+    <p><?php echo $franco->getLinks() ?></p>
+    <p>e anche twitter</p>
+    <?php $superFranco->setTwitterLink('superfranco.twitter.com'); ?>
+    <p><?php echo $superFranco->getLinks() ?></p>
+
+    <p>creo un prodotto</p>
+
+    <?php $cd = new Product('cd', 'lorem asasdf awefavsb', 'musica', 1);
+    ?>
+
+    <p><?php echo $cd->buy($superFranco) ?></p>
 </body>
 </html>
