@@ -64,27 +64,27 @@ try {
         </li>
         <?php } ?>
     </ul>
-    <p>aggiungo social link a superFranco</p>
+    <p>>aggiungo social link a superFranco</p>
     <?php $superFranco->setFacebookLink('superfranco.facebook.com'); ?>
-    <p><?php echo $superFranco->getLinks() ?></p>
-    <p>aggiungo social link anche a franco</p>
+    <h4><?php echo $superFranco->getLinks() ?></h4>
+    <p>>aggiungo social link anche a franco</p>
     <?php $franco->setFacebookLink('franco.facebook.com'); ?>
-    <p><?php echo $franco->getLinks() ?></p>
-    <p>e anche twitter</p>
+    <h4><?php echo $franco->getLinks() ?></h4>
+    <p>>e anche twitter</p>
     <?php $superFranco->setTwitterLink('superfranco.twitter.com'); ?>
-    <p><?php echo $superFranco->getLinks() ?></p>
+    <h4><?php echo $superFranco->getLinks() ?></h4>
 
-    <p>creo un prodotto</p>
+    <p>>creo un prodotto</p>
 
     <?php $cd = new Product('cd', 'lorem asasdf awefavsb', 'musica', 1);
     ?>
 
-    <p><?php echo $cd->buy($superFranco) ?></p>
-    <p>creo un secondo prodotto</p>
+    <h4><?php echo $cd->buy($superFranco) ?></h4>
+    <p>>creo un secondo prodotto</p>
 
     <?php $vinile = new Product('vinile', 'lorem asasdf awefavsb', 'musica', 0);
     ?>
 
-    <p><?php echo $vinile->buy($superFranco) ?></p>
+    <h4><?php echo $vinile->buy($superFranco) ?></h4>
 </body>
 </html>
